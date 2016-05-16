@@ -37,7 +37,7 @@ namespace Waiver.Controllers
                 signatureImage.Save(signatureFile);
             }
 
-            pdfService.GenerateWaiver(model.FirstName.ToUpper(), model.LastName.ToUpper(), model.Guardian.ToUpper(), model.DateOfBirth.ToUpper(), model.PhoneNumber.ToUpper(), model.Club, signatureFile);
+            pdfService.GenerateWaiver(model.FirstName.ToUpper(), model.LastName.ToUpper(), string.IsNullOrEmpty(model.Guardian) ? "" : model.Guardian.ToUpper(), model.DateOfBirth.ToUpper(), model.PhoneNumber.ToUpper(), model.Club, signatureFile);
 
             model.SignedWaiverFileName = string.Format("{0}_{1}_{2}.pdf", model.FirstName, model.LastName, model.Club.Replace(" ", "_"));
 
