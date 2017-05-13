@@ -6,6 +6,10 @@ using System.Web.Mvc;
 
 namespace Waiver.Models
 {
+    public class YourWaiver
+    {
+        public string FileName { get; set; }
+    }
     public class WaiverViewModel
     {
         public string FirstName { get; set; }

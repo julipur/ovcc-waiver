@@ -1,0 +1,14 @@
+﻿@model Waiver.Models.YourWaiver
+
+@{
+    ViewBag.Title = "Your Waiver";
+}
+
+<h2>Download your Waiver</h2>
+
+<div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+        Download your signed waiver here: 
+        <a href="/pdf/@Model.FileName"><strong>@Model.FileName</strong></a>
+    </div>
+</div>

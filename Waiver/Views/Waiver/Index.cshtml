@@ -10,6 +10,11 @@
 {
     @Html.HiddenFor(m => m.SignatureData)
     <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            Download your signed waiver here: <a href="/pdf/@Model.SignedWaiverFileName"><strong>@Model.SignedWaiverFileName</strong></a>
+        </div>
+    </div>
+    <div class="form-group">
         @Html.LabelFor(m => m.FirstName, new { @class = "col-sm-2 control-label" })
         
         <div class="col-sm-10">
@@ -59,7 +64,7 @@
     <div class="form-group">
         <label class="col-sm-2 control-label">Sign here:</label>
         <div class="col-sm-10">
-            <canvas id="signature-pad" class="signature-pad" width=400 height=200 style="border:1px solid #000000;"></canvas>
+            <canvas id="signature-pad" class="signature-pad"  height=150 style="border:1px solid #000000;"></canvas>
             <div class="form-group">
                 <button id="save">Save</button>
                 <button id="clear">Clear</button>

@@ -23,7 +23,7 @@ namespace Waiver.Controllers
         {
             model.InitializeClubs();
 
-            var waiverTemplate = Server.MapPath("/pdf/20150501.pdf");
+            var waiverTemplate = Server.MapPath("/pdf/2017.pdf");
             var signedWaiver = Server.MapPath(string.Format("/pdf/{0}_{1}_{2}.pdf", model.FirstName, model.LastName, model.Club.Replace(" " , "_")));
             var signatureFile = Server.MapPath(string.Format("/pdf/{0}_{1}_{2}.png", model.FirstName, model.LastName, model.Club.Replace(" " , "_")));
 
@@ -39,19 +39,31 @@ namespace Waiver.Controllers
 
             pdfService.GenerateWaiver(model.FirstName.ToUpper(), model.LastName.ToUpper(), string.IsNullOrEmpty(model.Guardian) ? "" : model.Guardian.ToUpper(), model.DateOfBirth.ToUpper(), model.PhoneNumber.ToUpper(), model.Club, signatureFile);
 
-            model.SignedWaiverFileName = string.Format("{0}_{1}_{2}.pdf", model.FirstName, model.LastName, model.Club.Replace(" ", "_"));
+            model.SignedWaiverFileName = string.Format("{0}_{1}_{2}.PDF", model.FirstName, model.LastName, model.Club.Replace(" ", "_"));
 
-            FileInfo signedWaiverFile = new FileInfo(signedWaiver);
-            FileInfo fileOfSignature = new FileInfo(signatureFile);
+            //FileInfo signedWaiverFile = new FileInfo(signedWaiver);
+            //FileInfo fileOfSignature = new FileInfo(signatureFile);
 
-            Response.AddHeader("Content-Disposition", "attachment;filename="+ model.SignedWaiverFileName );
-            Response.WriteFile(signedWaiver);
-            Response.Flush();
+            //Response.AddHeader("Content-Type", "application/octet-stream");
+            //Response.AddHeader("Content-Disposition", "attachment;filename="+ model.SignedWaiverFileName );
+            //Response.WriteFile(signedWaiver);
+            //Response.Flush();
 
-            signedWaiverFile.Delete();
-            fileOfSignature.Delete();
-            Response.End();
-            return null;
+            //signedWaiverFile.Delete();
+            //fileOfSignature.Delete();
+            //Response.End();
+
+            TempData["file_name"] = model.SignedWaiverFileName;
+
+            return RedirectToAction("yourwaiver", "waiver");
+
+            //return View(model);
+        }
+
+        [HttpGet]
+        public ActionResult YourWaiver()
+        {
+            return View(new YourWaiver() { FileName = TempData["file_name"].ToString() });
         }
     }
 }
