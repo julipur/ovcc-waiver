@@ -23,7 +23,13 @@ namespace Waiver.Controllers
         {
             model.InitializeClubs();
 
-            var waiverTemplate = Server.MapPath("/pdf/2017.pdf");
+            if (!ModelState.IsValid)
+            {
+                
+                return View(model);
+            }
+            
+            var waiverTemplate = Server.MapPath("/pdf/2018.pdf");
             var signedWaiver = Server.MapPath(string.Format("/pdf/{0}_{1}_{2}.pdf", model.FirstName, model.LastName, model.Club.Replace(" " , "_")));
             var signatureFile = Server.MapPath(string.Format("/pdf/{0}_{1}_{2}.png", model.FirstName, model.LastName, model.Club.Replace(" " , "_")));
 

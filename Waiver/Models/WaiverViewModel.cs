@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -12,12 +13,18 @@ namespace Waiver.Models
     }
     public class WaiverViewModel
     {
+        [Required(ErrorMessage = "First Name is required")]
         public string FirstName { get; set; }
+        [Required(ErrorMessage = "First Last is required")]
         public string LastName { get; set; }
         public string Guardian { get; set; }
+        [Required(ErrorMessage = "Date is required")]
         public string DateOfBirth { get; set; }
+        [Required(ErrorMessage = "Phone Number is required")]
         public string PhoneNumber { get; set; }
+        [Required(ErrorMessage = "Club is required")]
         public string Club { get; set; }
+        [Required(ErrorMessage = "Signature are required")]
         public string SignatureData { get; set; }
         public IEnumerable<SelectListItem> Clubs { get; set; }
         public string SignedWaiverFileName { get; set; }
@@ -39,6 +46,7 @@ namespace Waiver.Models
         {
             return new List<SelectListItem>()
                                  {
+                                     new SelectListItem() { Value=string.Empty, Text=string.Empty },
                                      new SelectListItem() { Value = "Bel Air Cricket Club", Text = "Bel Air Cricket Club" },
                                      new SelectListItem() { Value = "Defence Cricket Club", Text = "Defence Cricket Club" },
                                      new SelectListItem() { Value = "Ottawa Cricket Club", Text = "Ottawa Cricket Club" },

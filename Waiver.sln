@@ -1,20 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2024
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Waiver", "Waiver\Waiver.csproj", "{CA7733E4-71AE-427E-A0E7-8F9677DF0581}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PublishScripts", "PublishScripts", "{814A1586-5B6D-4100-91AD-CBA6FA3261AA}"
-	ProjectSection(SolutionItems) = preProject
-		PublishScripts\AzureWebsitePublishModule.psm1 = PublishScripts\AzureWebsitePublishModule.psm1
-		PublishScripts\Publish-WebApplicationWebsite.ps1 = PublishScripts\Publish-WebApplicationWebsite.ps1
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configurations", "Configurations", "{473F7DEE-6686-45B6-840D-7A77ACD76D9B}"
-	ProjectSection(SolutionItems) = preProject
-		PublishScripts\Configurations\Waiver-WAWS-dev.json = PublishScripts\Configurations\Waiver-WAWS-dev.json
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,7 +19,7 @@ Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{473F7DEE-6686-45B6-840D-7A77ACD76D9B} = {814A1586-5B6D-4100-91AD-CBA6FA3261AA}
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {ADD49932-A71B-431B-A88A-6BA5747FC308}
 	EndGlobalSection
 EndGlobal
